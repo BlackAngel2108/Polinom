@@ -202,7 +202,7 @@ void TPostfix::ToPostfix() {
 
 void TPostfix::GetValues(int number_of_table) {
     for (auto& op : operands) {
-        switch(number_of_table){ 
+        /*switch(number_of_table){ 
         case(1):
             op.second = *Not_Sorted_Table1.find(op.first)
         break;
@@ -211,7 +211,7 @@ void TPostfix::GetValues(int number_of_table) {
         break;
         case 3:
             op.second = *Sorted_Table.find(op.first)
-        break;
+        break;*/
         /*case 4:
             op.second = *Tree_Table.find(op.first)
         break;
@@ -220,8 +220,8 @@ void TPostfix::GetValues(int number_of_table) {
         break;
         case 6:
             op.second = *Hash_Table2.find(op.first)
-        break;*/
-        }
+        break;
+        }*/
    }
 }
 

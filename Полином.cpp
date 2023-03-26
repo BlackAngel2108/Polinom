@@ -1,5 +1,6 @@
 ﻿#include <iostream>
 #include "Polinom.h"
+#include "NoSortedTable1.h"
 int main()
 {
     Polinom a ("-2XYZ-3XY+8X^2Z^3");
@@ -19,4 +20,20 @@ int main()
     cout << endl;
     Polinom d = a - b;
     d.Print(); cout << endl;
+    NoSortedTable1 <string,Polinom> A;
+    A.Insert("a",a);
+    A.Insert("b",b);
+    A.Insert("c", c);
+    A.Insert("c", c);
+    A.Delete("b");
+    /*struct TTableRec {
+        string key;
+        Polinom value;
+    };*/
+    /*vector <TTableRec> output = A.GiveTable();
+    for (auto& elem : output) {
+        cout<<elem.key<<"  ";elem.value.Print();
+        cout<<endl;
+    }*/
+    A.Print();
 }

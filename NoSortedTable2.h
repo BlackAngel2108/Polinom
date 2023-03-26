@@ -10,7 +10,7 @@ class NoSortedTable2
     f_list <TTableRec> data();
 
 public:
-    NoSortedTable() = default;
+    NoSortedTable2() = default;
     size_t size() const noexcept { return data.size(); }
     TValue& operator[](size_t pos) {
         int i=0;
@@ -25,8 +25,10 @@ public:
                 if(&val.value==before)
                     data.pop_front;
                 data.erase_after(before);
+                before=&val.value;
+                return;
             }
-            before=&val.value;
+            
     }
     TValue* Find(Tkey key) {
         for (auto& val : data)
@@ -35,7 +37,7 @@ public:
         return nullptr;
     }
 
-    void Insert(Tkey key, Tvalue value) {
+    void Insert(Tkey key, TValue value) {
         if (Find(key))
             return;
         

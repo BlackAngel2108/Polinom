@@ -30,7 +30,7 @@ class Polinom
     vector<pair<lexemType, string>> infix;
     list<Monom> pol;
     
-    Polinom operator=(Polinom);
+    
     bool isNumber(char c);
     bool isSign(char c);
     bool isPoint(char c);
@@ -44,6 +44,7 @@ class Polinom
     void sort();
     
 public:
+    Polinom operator=(Polinom);
     Polinom();
     Polinom(string input,string name="pol");
     string GetInfix() { return input_expression; }
