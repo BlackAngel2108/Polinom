@@ -16,7 +16,9 @@ private:
         }
     };
     list_node* First;
+    
 public:
+    
     f_list()
     {
         First = NULL;

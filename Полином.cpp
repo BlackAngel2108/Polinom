@@ -1,6 +1,7 @@
 ﻿#include <iostream>
 #include "Polinom.h"
 #include "NoSortedTable1.h"
+#include "NoSortedTable2.h"
 int main()
 {
     Polinom a ("-2XYZ-3XY+8X^2Z^3");
@@ -36,4 +37,9 @@ int main()
         cout<<endl;
     }*/
     A.Print();
+    Polinom* pa= A.Find("a");
+    pa->Print();
+    NoSortedTable2 <string, Polinom> B;
+    B.Insert ("a",a);
+    B.Print();
 }

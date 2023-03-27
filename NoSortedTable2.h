@@ -1,5 +1,6 @@
 #pragma once
 #include "f_list.h"
+using namespace std;
 template <typename Tkey, typename TValue>
 class NoSortedTable2
 {
@@ -44,8 +45,21 @@ public:
         for (auto& val : data)
         data.push_back({ key,value });
     }
-    f_list <TTableRec> GiveTable() {
-        return data;
+    string* GiveTable() {
+        string arr[data.size()];
+        int i = 0;
+        for (auto& elem : data) {
+            arr[i] = elem.key + elem.value.GetInfix();
+            i++;
+        }
+        return arr;
+    }
+    void Print() {
+        for (auto& elem : data) {
+            cout << elem.key << "  ";
+            elem.value.Print();
+            cout << endl;
+        }
     }
 
 };
