@@ -1,22 +1,22 @@
 #pragma once
 #include <iostream>
 #include <vector>
+#include <string>
 using namespace std;
-    
+
 template <typename Tkey, typename TValue>
 class NoSortedTable1
 {
-    
-    
-
-public:
+    int const MaxSize=100;
     struct TTableRec {
         Tkey key;
         TValue value;
     };
     vector <TTableRec> data{};
     
-    NoSortedTable1() =default;
+
+public:
+    NoSortedTable1() = default;
     size_t size() const noexcept { return data.size(); }
     TValue& operator[](size_t pos) { return data[pos].value; }//?
     void Delete(Tkey key) {
@@ -40,18 +40,16 @@ public:
             return;
         data.push_back({ key,value });
     }
-    string* GiveTable() {
-        string arr[data.size()];
-        int i=0;
+    vector<string> GiveTable() {
+        vector<string> arr;
         for (auto& elem : data) {
-            arr[i]=elem.key+elem.value.GetInfix();
-            i++;
+            arr.push_back(elem.key + " = "+elem.value.GivePolinom());
         }
         return arr;
     }
     void Print() {
         for (auto& elem : data) {
-            cout<<elem.key<<"  ";
+            cout<<elem.key<<"= ";
             elem.value.Print();
             cout<<endl;
         }

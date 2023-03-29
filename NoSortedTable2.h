@@ -1,5 +1,8 @@
 #pragma once
-#include "f_list.h"
+#include <iostream>
+#include <vector>
+#include <list>
+#include <string>
 using namespace std;
 template <typename Tkey, typename TValue>
 class NoSortedTable2
@@ -8,8 +11,8 @@ class NoSortedTable2
         Tkey key;
         TValue value;
     };
-    f_list <TTableRec> data();
-
+    //f_list <TTableRec> data;
+    list<TTableRec> data;
 public:
     NoSortedTable2() = default;
     size_t size() const noexcept { return data.size(); }
@@ -20,16 +23,14 @@ public:
                 return val.value;
     }//?
     void Delete(Tkey key) {
-        TValue& before=&data.value;
-        for (auto& val : data)
+        auto iter = data.begin();
+        for (auto& val : data) {
+            iter++;
             if (val.key == key) {
-                if(&val.value==before)
-                    data.pop_front;
-                data.erase_after(before);
-                before=&val.value;
+                data.erase(--iter);
                 return;
             }
-            
+        }
     }
     TValue* Find(Tkey key) {
         for (auto& val : data)
@@ -41,22 +42,18 @@ public:
     void Insert(Tkey key, TValue value) {
         if (Find(key))
             return;
-        
-        for (auto& val : data)
-        data.push_back({ key,value });
+        data.push_back({key,value});
     }
-    string* GiveTable() {
-        string arr[data.size()];
-        int i = 0;
+    vector <string> GiveTable() {
+        vector<string> arr;
         for (auto& elem : data) {
-            arr[i] = elem.key + elem.value.GetInfix();
-            i++;
+            arr.push_back(elem.key + " = " + elem.value.GivePolinom());
         }
         return arr;
     }
     void Print() {
         for (auto& elem : data) {
-            cout << elem.key << "  ";
+            cout << elem.key << " = ";
             elem.value.Print();
             cout << endl;
         }

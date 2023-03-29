@@ -48,9 +48,11 @@ public:
     Polinom();
     Polinom(string input,string name="pol");
     string GetInfix() { return input_expression.erase(input_expression.size()-Name.size()-1, Name.size()+1); }
-    int Give_size_of_name(){return Name.size();}
+    int Get_size_of_name(){return Name.size();}
     void Give_name(string name){ Name= name;}
+    string Get_name(){return Name;}
     void Print();
+    string GivePolinom();
     double Point(double x=1.0,double y=1.0,double z=1.0);
     Polinom operator*(double n);
     Polinom operator+(double n);

@@ -45,7 +45,7 @@ Polinom Polinom:: operator=(Polinom second) {
     return *this;
 }
 void Polinom::Parse() {
-    lexemType type = nothing;
+    //lexemType type = nothing;
     int state=0; //состояние автомата
     int left=0; //левая граница лексемы
     int number_of_points=0; //количество точек в числе( не больше одной)
@@ -131,7 +131,7 @@ void Polinom::Parse() {
                     state = 0;
                 }
                 else if (isNumber(c)) {
-                    left = i+1;
+                    //left = i+1;
                     state = 1;
                 }
                 else if (isPoint(c)) {
@@ -448,6 +448,18 @@ void Polinom::Print() {
 
     return;
 }
+string Polinom::GivePolinom() {
+    string ans{};
+    for (auto& item : pol) {
+        if (item.sign == -1)
+             ans+="-";
+        else
+            ans+= "+";
+        ans+= (to_string(item.number) + "X^" + to_string(item.degree / (P * P))+ "Y^" 
+        + to_string((item.degree % (P * P)) / P) + "z^" + to_string( item.degree % P));
+    }
+    return ans;
+}
 double Polinom::Point(double x, double y, double z) {
     double ans=0;
     for (auto& monom : pol) {
@@ -476,15 +488,15 @@ Polinom Polinom::operator*(double n) {
 }
 Polinom Polinom::operator+(double n) {
     Polinom ans = *this;
-    char a=(char)n;
-    string b=""+a;
+    string a=to_string(n);
+    string b=a;
     Polinom second(b);
     return ans+second;
 }
 Polinom Polinom::operator-(double n) {
     Polinom ans = *this;
-    char a = (char)n;
-    string b = "" + a;
+    string a = to_string(n);
+    string b = a;
     Polinom second(b);
     return ans - second;
 }

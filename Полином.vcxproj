@@ -140,11 +140,13 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="f_list.cpp" />
+    <ClCompile Include="HashTable1.cpp" />
     <ClCompile Include="NoSortedTable1.cpp" />
     <ClCompile Include="NoSortedTable2.cpp" />
     <ClCompile Include="Polinom.cpp" />
     <ClCompile Include="Postfix.cpp" />
     <ClCompile Include="SortedTable.cpp" />
+    <ClCompile Include="test_HT1cpp.cpp" />
     <ClCompile Include="test_polinom.cpp" />
     <ClCompile Include="test_postfix.cpp" />
     <ClCompile Include="stack.cpp" />
@@ -155,6 +157,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="f_list.h" />
+    <ClInclude Include="HashTable1.h" />
     <ClInclude Include="NoSortedTable1.h" />
     <ClInclude Include="NoSortedTable2.h" />
     <ClInclude Include="Polinom.h" />
